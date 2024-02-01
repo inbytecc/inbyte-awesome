@@ -34,10 +34,10 @@ public class ${generateInfo.moduleName}Controller {
      * 新增
      *
      * @param insert
-     * @return Result
+     * @return R
      **/
     @PostMapping
-    public Result insert(@RequestBody @Valid ${generateInfo.moduleName}Insert insert) {
+    public R insert(@RequestBody @Valid ${generateInfo.moduleName}Insert insert) {
         return ${generateInfo.moduleNameLowercaseCamel}Service.insert(insert);
     }
 
@@ -45,10 +45,10 @@ public class ${generateInfo.moduleName}Controller {
      * 删除
      *
      * @param ${generateInfo.primaryKeyLowerCamel}
-     * @return Result
+     * @return R
      **/
     @DeleteMapping("{${generateInfo.primaryKeyLowerCamel}}")
-    public Result delete(@PathVariable("${generateInfo.primaryKeyLowerCamel}") ${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel}) {
+    public R delete(@PathVariable("${generateInfo.primaryKeyLowerCamel}") ${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel}) {
         return ${generateInfo.moduleNameLowercaseCamel}Service.delete(${generateInfo.primaryKeyLowerCamel});
     }
 
@@ -56,10 +56,10 @@ public class ${generateInfo.moduleName}Controller {
      * 更新
      *
      * @param update
-     * @return Result
+     * @return R
      **/
     @PutMapping
-    public Result update(@RequestBody @Valid ${generateInfo.moduleName}Update update) {
+    public R update(@RequestBody @Valid ${generateInfo.moduleName}Update update) {
         return ${generateInfo.moduleNameLowercaseCamel}Service.update(update);
     }
 
@@ -67,10 +67,10 @@ public class ${generateInfo.moduleName}Controller {
      * 详情
      *
      * @param ${generateInfo.primaryKeyLowerCamel}
-     * @return Result${"<"}${generateInfo.moduleName}Detail${">"}
+     * @return R${"<"}${generateInfo.moduleName}Detail${">"}
      **/
     @GetMapping("{${generateInfo.primaryKeyLowerCamel}}")
-    public Result${"<"}${generateInfo.moduleName}Detail${">"} detail(@PathVariable("${generateInfo.primaryKeyLowerCamel}") ${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel}) {
+    public R${"<"}${generateInfo.moduleName}Detail${">"} detail(@PathVariable("${generateInfo.primaryKeyLowerCamel}") ${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel}) {
         return ${generateInfo.moduleNameLowercaseCamel}Service.detail(${generateInfo.primaryKeyLowerCamel});
     }
 
@@ -78,10 +78,10 @@ public class ${generateInfo.moduleName}Controller {
      * 列表
      *
      * @param query
-     * @return Result${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"}
+     * @return R${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"}
      **/
     @GetMapping
-    public Result${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"} list(@ModelAttribute @Valid ${generateInfo.moduleName}Query query) {
+    public R${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"} list(@ModelAttribute @Valid ${generateInfo.moduleName}Query query) {
         return ${generateInfo.moduleNameLowercaseCamel}Service.list(query);
     }
 }

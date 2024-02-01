@@ -20,25 +20,25 @@ public interface ${generateInfo.moduleName}Service {
      * 新增
      *
      * @param insert
-     * @return Result
+     * @return R
      **/
-    Result insert(${generateInfo.moduleName}Insert insert);
+    R insert(${generateInfo.moduleName}Insert insert);
 
     /**
      * 删除
      *
      * @param ${generateInfo.primaryKeyLowerCamel}
-     * @return Result
+     * @return R
      **/
-    Result delete(${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel});
+    R delete(${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel});
 
     /**
      * 修改
      *
      * @param update
-     * @return Result
+     * @return R
      **/
-    Result update(${generateInfo.moduleName}Update update);
+    R update(${generateInfo.moduleName}Update update);
 
     /**
      * 详情
@@ -46,13 +46,13 @@ public interface ${generateInfo.moduleName}Service {
      * @param ${generateInfo.primaryKeyLowerCamel}
      * @return ${generateInfo.moduleName}Detail
      **/
-    Result${"<"}${generateInfo.moduleName}Detail${">"} detail(${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel});
+    R${"<"}${generateInfo.moduleName}Detail${">"} detail(${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel});
 
     /**
      * 列表
      *
      * @param query
-     * @return Result${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"}
+     * @return R${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"}
      **/
-    Result${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"} list(${generateInfo.moduleName}Query query);
+    R${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"} list(${generateInfo.moduleName}Query query);
 }
