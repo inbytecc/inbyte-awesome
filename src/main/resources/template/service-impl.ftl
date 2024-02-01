@@ -11,8 +11,8 @@ import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generate
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Update;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Brief;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Detail;
-import com.pyrange.common.model.dto.Result;
-import com.pyrange.common.util.PageUtil;
+import com.inbyte.commons.model.dto.R;
+import com.inbyte.commons.util.PageUtil;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -37,8 +37,8 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     public Result insert(${generateInfo.moduleName}Insert insert) {
         ${generateInfo.moduleName}Po ${generateInfo.moduleNameLowercaseCamel}Po = ${generateInfo.moduleName}Po.builder()
                 .createTime(LocalDateTime.now())
-                //.createUserId(SessionUtil.getUserId())
-                //.createUserName(SessionUtil.getUserName())
+                .createUserId(SessionUtil.getUserId())
+                .createUserName(SessionUtil.getUserName())
                 .build();
         BeanUtils.copyProperties(insert, ${generateInfo.moduleNameLowercaseCamel}Po);
         ${generateInfo.moduleNameLowercaseCamel}Mapper.insert(${generateInfo.moduleNameLowercaseCamel}Po);
@@ -47,9 +47,9 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
 
     @Override
     public Result delete(Integer ${generateInfo.primaryKeyLowerCamel}) {
-        LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper();
-        queryWrapper.eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel});
-        //queryWrapper.eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
+        LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper<${generateInfo.moduleName}Po>()
+            .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel})
+            .eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
         ${generateInfo.moduleNameLowercaseCamel}Mapper.delete(queryWrapper);
         return Result.success("删除成功");
     }
@@ -61,10 +61,9 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
                 .build();
         BeanUtils.copyProperties(update, ${generateInfo.moduleNameLowercaseCamel}Po);
 
-
-        LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper();
-        queryWrapper.eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, update.get${generateInfo.primaryKeyUpperCamel}());
-        //queryWrapper.eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
+        LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper<${generateInfo.moduleName}Po>()
+                .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel})
+                .eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
         ${generateInfo.moduleNameLowercaseCamel}Mapper.update(${generateInfo.moduleNameLowercaseCamel}Po, queryWrapper);
         return Result.success("修改成功");
     }
