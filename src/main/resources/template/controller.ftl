@@ -1,5 +1,6 @@
 package ${generateInfo.controllerPackage};
-import ${basicConfig.groupId}.commons.model.dto.Page;
+import com.inbyte.commons.model.dto.Page;
+import com.inbyte.commons.model.dto.R;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Query;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Insert;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Update;
@@ -8,7 +9,6 @@ import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generate
 import ${generateInfo.servicePackage}.${generateInfo.moduleName}Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.inbyte.commons.model.dto.R;
 
 <#if basicConfig.jdkVersion == 17>
 import jakarta.validation.Valid;

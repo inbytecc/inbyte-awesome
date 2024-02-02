@@ -1,11 +1,11 @@
 package ${generateInfo.servicePackage};
-import ${basicConfig.groupId}.common.model.dto.Page;
+import com.inbyte.commons.model.dto.Page;
+import com.inbyte.commons.model.dto.R;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Query;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Insert;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Update;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Brief;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Detail;
-import com.inbyte.commons.model.dto.R;
 import java.util.List;
 
 /**

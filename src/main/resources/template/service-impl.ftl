@@ -1,8 +1,10 @@
 package ${generateInfo.servicePackage}.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import ${basicConfig.groupId}.common.model.dto.Page;
+import com.inbyte.commons.model.dto.Page;
+import com.inbyte.commons.model.dto.R;
+import com.inbyte.commons.util.PageUtil;
+import com.inbyte.component.admin.system.user.SessionUtil;
 import ${generateInfo.servicePackage}.${generateInfo.moduleName}Service;
 import ${generateInfo.mapperPackage}.${generateInfo.moduleName}Mapper;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Po;
@@ -11,8 +13,6 @@ import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generate
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Update;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Brief;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Detail;
-import com.inbyte.commons.model.dto.R;
-import com.inbyte.commons.util.PageUtil;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -36,6 +36,7 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     @Override
     public R insert(${generateInfo.moduleName}Insert insert) {
         ${generateInfo.moduleName}Po ${generateInfo.moduleNameLowercaseCamel}Po = ${generateInfo.moduleName}Po.builder()
+                .mctNo(SessionUtil.getDefaultMctNo())
                 .createTime(LocalDateTime.now())
                 .createUserId(SessionUtil.getUserId())
                 .createUserName(SessionUtil.getUserName())
@@ -62,7 +63,7 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
         BeanUtils.copyProperties(update, ${generateInfo.moduleNameLowercaseCamel}Po);
 
         LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper<${generateInfo.moduleName}Po>()
-                .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel})
+                .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, update.get${generateInfo.primaryKeyUpperCamel}())
                 .eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
         ${generateInfo.moduleNameLowercaseCamel}Mapper.update(${generateInfo.moduleNameLowercaseCamel}Po, queryWrapper);
         return R.ok("修改成功");
