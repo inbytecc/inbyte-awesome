@@ -1,1 +1,1 @@
-rootProject.name = "inbyte-awesome"
+rootProject.name = "inbyte-cg"

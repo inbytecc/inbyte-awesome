@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.12.0"
 }
 
-group = "com.pyrange"
+group = "com.inbyte"
 version = "1.3.1"
 
 repositories {
