@@ -28,12 +28,9 @@ public class CodingDialog extends DialogWrapper {
         jTextArea.setLineWrap(true);
         jTextArea.setCaretPosition(0);
 
-        // 设置自动换行
-        // 定义带滚动条的panel，并将JTextArea存入到panel中，使textarea具有滚动条显示功能。
         JScrollPane scrollPane = new JScrollPane(jTextArea);
-        //取消显示水平滚动条
+        //
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        //显示垂直滚动条
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         dialogPanel.add(scrollPane);
 

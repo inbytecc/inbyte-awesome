@@ -1,7 +1,7 @@
 package com.inbyte.cg.model;
 
 /**
- * 这里是类描述
+ *
  *
  * @author : yangning
  * @date: 2018-6-11

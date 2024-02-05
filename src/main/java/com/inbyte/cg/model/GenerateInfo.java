@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 这里是类描述
+ * 
  *
  * @author : yangning
  * @date: 2018-6-11
@@ -28,16 +28,16 @@ public class GenerateInfo {
     private Set<String> importList;
 
     /**
-     * model 信息
+     * model 
      */
     private String modelPackage;
     /**
-     * 小数点分隔 controller 目录
+     *  controller 
      * com.pyrange.xx
      */
     private String controllerPackage;
     /**
-     * 下划线分隔 controller 目录
+     *  controller 
      * com/pyrange/xx
      */
     private String controllerPackageWithSlash;
@@ -49,7 +49,7 @@ public class GenerateInfo {
     private String modelNameLowercase;
 
     /**
-     * 主键信息
+     * 
      */
     private String primaryKeyJavaType;
     private String primaryKeyJavaTypeName;

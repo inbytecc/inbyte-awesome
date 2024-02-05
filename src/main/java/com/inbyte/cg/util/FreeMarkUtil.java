@@ -1,9 +1,9 @@
 package com.inbyte.cg.util;
 
+import com.inbyte.cg.model.BasicConfig;
 import com.inbyte.cg.model.ConfigModel;
 import com.inbyte.cg.model.GenerateInfo;
 import com.intellij.openapi.diagnostic.Logger;
-import com.inbyte.cg.model.BasicConfig;
 import freemarker.template.Template;
 
 import java.io.*;
@@ -14,7 +14,7 @@ public class FreeMarkUtil {
     private static final Logger LOGGER = Logger.getInstance(FreeMarkUtil.class);
 
 //    /**
-//     * 使用本地文件模板生成文件
+//     * 
 //     *
 //     * @param root
 //     * @param templateName
@@ -45,7 +45,7 @@ public class FreeMarkUtil {
 
 
     /**
-     * 使用本地文件模板生成文件
+     * 
      *
      * @param root
      * @param templateName

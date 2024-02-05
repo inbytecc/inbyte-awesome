@@ -4,10 +4,14 @@
   </a>
 </p>
 
-# Awesome Inbyte, Awesome Code
-Inbyte is a powerful code generation tool that simplifies the development process by automating the creation of controllers, services, mappers, models, and even Vue frontend components along with basic test cases. Its aim is to reduce repetitive, tedious, and non-value-added tasks for developers, allowing them to focus their time and energy on more meaningful aspects of their work.
+# InbyteCG, Awesome Code
+InbyteCG is a code generator for Java & Web developer. It can help you generate code that includes controller, service, mapper, model, even test case and Vue code.
+It will introspect a database table (or many tables) and will generate artifacts that can be used to access the table(s).
+This lessens the initial nuisance of setting up objects and configuration files to interact with database tables.
+AP seeks to make a major impact on the large percentage of database operations that are simple CRUD (Create, Retrieve, Update, Delete).
 
-Inbyte 是一款强大的代码生成工具，可以自动创建控制器、服务、映射器、模型，甚至是 Vue 前端组件，以及基础测试用例。它的目标是帮助开发者减少重复、繁琐和无意义的工作，让他们将时间投入到更有意义的工作中。
+InbyteCG 是一个有点厉害的代码自动生成工具, 它可以帮助你生成 controller, service, mapper, model, 甚至包括 Vue 前端 和简单的测试用例.
+AP 希望帮助开发减少重复, 麻烦, 无意义的工作, 帮助开发者将时间利用在更有价值地方.
 
 # 使用方法
 参考 [tutorial.md](tutorial.md)
@@ -27,4 +31,4 @@ Gradle -> Tasks -> intellij -> runIdeForUiTests
 2020.1.2 -> 2022.2.1
 
 # Others
-插件地址：https://plugins.jetbrains.com/plugin/20873-awesome-pyrange
+插件地址:https://plugins.jetbrains.com/plugin/20873-awesome-pyrange

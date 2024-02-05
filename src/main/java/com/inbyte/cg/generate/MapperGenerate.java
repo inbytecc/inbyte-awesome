@@ -1,15 +1,15 @@
 package com.inbyte.cg.generate;
 
+import com.inbyte.cg.model.BasicConfig;
 import com.inbyte.cg.model.ConfigModel;
 import com.inbyte.cg.model.GenerateInfo;
 import com.inbyte.cg.util.FreeMarkUtil;
-import com.inbyte.cg.model.BasicConfig;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 这里是类描述
+ * 
  *
  * @author : yangning
  * @date: 2018-6-12

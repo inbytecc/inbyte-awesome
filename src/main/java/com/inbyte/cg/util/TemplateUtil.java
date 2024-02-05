@@ -1,13 +1,13 @@
 package com.inbyte.cg.util;
 
+import com.inbyte.cg.PyrangeException;
+import com.inbyte.cg.model.BasicConfig;
 import com.inbyte.cg.model.Result;
 import groovy.util.logging.Slf4j;
 
 import com.google.common.base.Throwables;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.diagnostic.Logger;
-import com.inbyte.cg.PyrangeException;
-import com.inbyte.cg.model.BasicConfig;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * 模板服务
+ * 
  *
  * @author chenjw
  * @date 2023-2-3
@@ -56,7 +56,7 @@ public class TemplateUtil {
     }
 
     /**
-     * 保存模板信息
+     * 
      *
      * @param templateCollectionName
      * @param templateName
@@ -70,7 +70,7 @@ public class TemplateUtil {
     }
 
     /**
-     * 初始化模板
+     * 
      *
      * @param templateCollectionName
      */
@@ -98,7 +98,7 @@ public class TemplateUtil {
     }
 
     /**
-     * 创建新模板
+     * 
      *
      * @param templateName
      * @return
@@ -107,7 +107,7 @@ public class TemplateUtil {
     public static Template getTemplate(String templateName) throws IOException {
         String templateCollectionName = BasicConfig.getTemplateCollectionName();
         Configuration conf = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
-        // 获取模板加载器
+        // 
         String templateContent = getTemplateContent(templateCollectionName, templateName);
         StringTemplateLoader stringTemplateLoader = new StringTemplateLoader();
         stringTemplateLoader.putTemplate(templateName, templateContent);
@@ -116,8 +116,8 @@ public class TemplateUtil {
     }
 
     /**
-     * 获取模板内容
-     * 默认获取本地配置
+     * 
+     * 
      *
      * @param templateCollectionName
      * @param templateName
@@ -134,8 +134,8 @@ public class TemplateUtil {
     }
 
     /**
-     * 获取模板内容
-     * 默认获取本地配置
+     * 
+     * 
      *
      * @param cloudConfigUrl
      * @return
@@ -151,8 +151,8 @@ public class TemplateUtil {
     }
 
     /**
-     * 获取模板内容
-     * 默认获取本地配置
+     * 
+     * 
      *
      * @param cloudConfigUrl
      * @return
@@ -172,17 +172,17 @@ public class TemplateUtil {
                     .sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
                     .exceptionally(err -> {
-                        log.error("加载云模板异常", err);
-                        throw new PyrangeException("加载模板网络异常, 无法访问" + url);
+                        log.error("", err);
+                        throw new PyrangeException(", " + url);
                     });
             String templateContent = result.get();
             if (StringUtils.isEmpty(templateContent)) {
-                throw new PyrangeException("加载模板网络异常, 无法访问" + url);
+                throw new PyrangeException(", " + url);
             }
             saveTemplate("cloud", templateName, templateContent);
         } catch (Exception e) {
-            log.error("加载云模板异常", e);
-            throw new PyrangeException("加载云模板异常, 异常信息:" + Throwables.getStackTraceAsString(e));
+            log.error("", e);
+            throw new PyrangeException(", :" + Throwables.getStackTraceAsString(e));
         }
     }
 

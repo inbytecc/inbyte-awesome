@@ -1,7 +1,7 @@
 package com.inbyte.cg;
 
 /**
- * 项目常量
+ *
  *
  * @author chenjw
  */

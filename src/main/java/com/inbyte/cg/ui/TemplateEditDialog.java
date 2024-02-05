@@ -1,7 +1,7 @@
 package com.inbyte.cg.ui;
 
-import com.inbyte.cg.util.TemplateUtil;
 import com.intellij.openapi.ui.Messages;
+import com.inbyte.cg.util.TemplateUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -57,7 +57,7 @@ public class TemplateEditDialog extends JDialog {
 
     private void onOK() {
         TemplateUtil.saveTemplate(selectedCodeTemplate, templateName, templateTextArea.getText());
-        Messages.showMessageDialog("保存成功", "tip", Messages.getInformationIcon());
+        Messages.showMessageDialog("", "tip", Messages.getInformationIcon());
         dispose();
     }
 

@@ -3,27 +3,27 @@ package com.inbyte.cg.model;
 import java.io.Serializable;
 
 /**
- * 实体包装类
+ * 
  *
  * @author chenjw
- * @date 2020年7月6日
+ * @date 202076
  */
 public class Result<E> implements Serializable {
 
     /**
-     * 请求响应状态,参考字典ResultStatus
+     * ,ResultStatus
      *
      * @mock 200
      */
     private Integer status;
     /**
-     * 消息提示
+     * 
      *
-     * @mock 请求成功
+     * @mock 
      */
     private String msg;
     /**
-     * 返回结果
+     * 
      */
     private E data;
 
@@ -61,31 +61,31 @@ public class Result<E> implements Serializable {
     }
 
     /**
-     * 请求结果成功
+     * 
      */
     public boolean succeeded() {
         return status == ResultStatus.Success.code;
     }
 
     /**
-     * 请求结果失败
+     * 
      */
     public boolean failed() {
         return status != ResultStatus.Success.code;
     }
 
     /**
-     * 业务处理成功
+     * 
      *
-     * @param msg 处理成功提示消息, 注意: 当响应结果为 String 类型时, 需要调用 success(String msg, T data) 重载方法, 否则会将结果设置为 msg 消息
+     * @param msg , :  String ,  success(String msg, T data) ,  msg 
      */
     public static <T> Result<T> success(String msg) {
         return success(msg, null);
     }
 
     /**
-     * 业务处理成功
-     * 状态码 200
+     * 
+     *  200
      *
      * @param <T>
      * @return
@@ -95,9 +95,9 @@ public class Result<E> implements Serializable {
     }
 
     /**
-     * 业务处理成功
+     * 
      *
-     * @param data 响应数据, 注意: 当响应结果为 String 类型时, 需要调用 success(String msg, T data) 重载方法, 否则会将结果设置为 msg 消息
+     * @param data , :  String ,  success(String msg, T data) ,  msg 
      * @param <T>
      * @return
      */
@@ -106,7 +106,7 @@ public class Result<E> implements Serializable {
     }
 
     /**
-     * 业务处理成功
+     * 
      *
      * @param msg
      * @param data
@@ -118,7 +118,7 @@ public class Result<E> implements Serializable {
     }
 
     /**
-     * 业务处理失败
+     * 
      *
      * @param msg
      * @param <T>
@@ -129,7 +129,7 @@ public class Result<E> implements Serializable {
     }
 
     /**
-     * 业务处理失败
+     * 
      *
      * @param msg
      * @param data
@@ -145,8 +145,8 @@ public class Result<E> implements Serializable {
     }
 
     /**
-     * 系统异常
-     * 状态码 500
+     * 
+     *  500
      *
      * @param msg
      * @param <T>

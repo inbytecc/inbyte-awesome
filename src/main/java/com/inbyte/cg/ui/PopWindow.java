@@ -20,7 +20,7 @@ public class PopWindow extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-        // 设置窗口位置
+        // 
         this.setLocation(600, 300);
         this.setPreferredSize(new Dimension(400, 200));
 

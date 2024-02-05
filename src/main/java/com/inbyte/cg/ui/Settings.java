@@ -1,15 +1,15 @@
 package com.inbyte.cg.ui;
 
 import com.google.common.base.Throwables;
+import com.intellij.ide.util.PropertiesComponent;
+import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.ui.Messages;
+import com.inbyte.cg.model.BasicConfig;
 import com.inbyte.cg.model.Result;
 import com.inbyte.cg.util.CommonUtil;
 import com.inbyte.cg.util.MessageUtil;
 import com.inbyte.cg.util.TableUtil;
 import com.inbyte.cg.util.TemplateUtil;
-import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.openapi.ui.Messages;
-import com.inbyte.cg.model.BasicConfig;
 import groovy.util.logging.Slf4j;
 import org.apache.commons.lang.StringUtils;
 
@@ -48,7 +48,7 @@ public class Settings extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
-        // 设置窗口位置
+        //
         this.setLocation(400, 200);
 
         BasicConfig basicConfig = BasicConfig.getBasicConfig();
@@ -64,7 +64,7 @@ public class Settings extends JDialog {
         jdkComboBox.addItem("17");
         jdkComboBox.setSelectedItem(basicConfig.getJdkVersion().toString());
 
-        // 模板设置
+        //
         for (String template : basicConfig.getCodeTemplates()) {
             codeTemplatesBox.addItem(template);
         }

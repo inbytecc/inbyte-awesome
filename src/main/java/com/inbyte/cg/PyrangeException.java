@@ -1,7 +1,7 @@
 package com.inbyte.cg;
 
 /**
- * Pyrange异常
+ * Pyrange
  *
  * @author chenjw
  * @date 2023-2-3

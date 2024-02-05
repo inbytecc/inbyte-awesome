@@ -1,9 +1,9 @@
 package com.inbyte.cg.util;
 
-import com.intellij.openapi.diagnostic.Logger;
 import com.inbyte.cg.PyrangeException;
-import com.inbyte.cg.model.TableInfo;
 import com.inbyte.cg.model.TableColumn;
+import com.inbyte.cg.model.TableInfo;
+import com.intellij.openapi.diagnostic.Logger;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;

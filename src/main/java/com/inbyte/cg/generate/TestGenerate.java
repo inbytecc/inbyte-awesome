@@ -1,16 +1,16 @@
 package com.inbyte.cg.generate;
 
+import com.inbyte.cg.model.BasicConfig;
 import com.inbyte.cg.model.ConfigModel;
 import com.inbyte.cg.model.GenerateInfo;
 import com.inbyte.cg.util.FreeMarkUtil;
-import com.inbyte.cg.model.BasicConfig;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 测试代码生成
+ *
  *
  * @author : chenjw
  * @date: 2023-1-13
@@ -29,7 +29,7 @@ public class TestGenerate {
                 + "/test/";
         File file = new File(testConstantPath + "TestConstant.java");
         if (!file.exists()) {
-            FreeMarkUtil.generateFileByTemplateContent(root,
+            FreeMarkUtil.generateFileByTemplateContent(root, 
                     "test-constant.ftl", testConstantPath, "TestConstant.java");
         }
 

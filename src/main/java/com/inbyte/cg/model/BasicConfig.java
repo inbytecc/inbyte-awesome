@@ -5,7 +5,7 @@ import com.intellij.ide.util.PropertiesComponent;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * 基本配置类
+ *
  *
  * @author chenjw
  * @date 2023/1/16
@@ -25,31 +25,31 @@ public class BasicConfig {
     private String author;
 
     /**
-     * 组织ID
+     * ID
      * com.xx
      */
     private String groupId;
     /**
-     * JDK 版本
+     * JDK
      */
     private Integer jdkVersion;
 
     /**
-     * 代码模板
+     *
      */
     private String[] codeTemplates;
     /**
-     * 选择的代码模板
+     *
      */
     private String selectedCodeTemplate;
 
     /**
-     * 是否开启云端配置
+     *
      */
     private boolean cloudConfigEnabled;
 
     /**
-     * 云端配置URL
+     * URL
      */
     private String cloudConfigUrl;
 
@@ -84,7 +84,7 @@ public class BasicConfig {
     }
 
     /**
-     * 获取模板集名称
+     *
      * @return
      */
     public static String getTemplateCollectionName() {

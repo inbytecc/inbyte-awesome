@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 测试代码生成
+ *
  *
  * @author : chenjw
  * @date: 2023-1-13
@@ -19,7 +19,7 @@ import java.util.Set;
 public class CodeGenerate {
 
     public static void generate(BasicConfig basicConfig, ConfigModel configModel) throws Exception {
-        // 获取处理配置信息
+        //
         TableInfo tableInfo = getTableInfo(basicConfig, configModel);
         GenerateInfo generateInfo = getGenerateInfo(basicConfig, configModel, tableInfo);
 

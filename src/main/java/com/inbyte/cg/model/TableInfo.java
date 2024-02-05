@@ -3,7 +3,7 @@ package com.inbyte.cg.model;
 
 import java.util.List;
 /**
- * 这里是类描述
+ * 
  *
  * @author : yangning
  * @date: 2018-6-11
@@ -11,12 +11,18 @@ import java.util.List;
 
 public class TableInfo {
     /**
-     * 表名
+     * 
      */
     private String tableName;
 
+    /**
+     * 
+     */
     private String tableComment;
 
+    /**
+     * 
+     */
     private List<TableColumn> tableColumns;
 
     public String getTableName() {

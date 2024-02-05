@@ -1,10 +1,10 @@
 package com.inbyte.cg.ui;
 
-import com.inbyte.cg.model.Result;
-import com.inbyte.cg.util.TemplateUtil;
 import com.intellij.openapi.ui.InputValidator;
 import com.intellij.openapi.ui.Messages;
 import com.inbyte.cg.model.BasicConfig;
+import com.inbyte.cg.model.Result;
+import com.inbyte.cg.util.TemplateUtil;
 import org.apache.commons.lang.StringUtils;
 
 import javax.swing.*;
@@ -45,11 +45,11 @@ public class TemplateSettings extends JDialog {
 
         this.parentCodeTemplatesBox = parentCodeTemplatesBox;
 
-        // 设置窗口位置
-        this.setLocation(400, 200);//设置窗口居中显示
+        // 
+        this.setLocation(400, 200);
         BasicConfig basicConfig = BasicConfig.getBasicConfig();
 
-        // 模板设置
+        // 
         for (String template : basicConfig.getCodeTemplates()) {
             codeTemplatesBox.addItem(template);
         }
@@ -197,7 +197,7 @@ public class TemplateSettings extends JDialog {
         });
 
         /**
-         * 创建新的模板
+         * 
          */
         addNewTemplateButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -221,7 +221,7 @@ public class TemplateSettings extends JDialog {
                     return;
                 }
 
-                // 创建模板
+                // 
                 Result result = Settings.createNewTemplate(codeTemplateName);
                 codeTemplatesBox.addItem(codeTemplateName);
                 codeTemplatesBox.setSelectedItem(codeTemplateName);
@@ -274,7 +274,7 @@ public class TemplateSettings extends JDialog {
         if (StringUtils.isEmpty(templateName)) {
             return false;
         }
-        String regEx = "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
+        String regEx = "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~&]|\n|\r|\t";
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(templateName);
         if (m.find()) {
@@ -284,7 +284,7 @@ public class TemplateSettings extends JDialog {
     }
 
     /**
-     * 打开模板编辑页面
+     * 
      *
      * @param selectedCodeTemplate
      * @param templateName
@@ -297,7 +297,7 @@ public class TemplateSettings extends JDialog {
     }
 
     /**
-     * ok按钮操作
+     * ok
      */
     private void onOK() {
         int itemCount = codeTemplatesBox.getItemCount();

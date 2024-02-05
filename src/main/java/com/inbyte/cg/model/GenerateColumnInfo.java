@@ -1,7 +1,7 @@
 package com.inbyte.cg.model;
 
 /**
- * 这里是类描述
+ * 
  *
  * @author : yangning
  * @date: 2018-6-11
@@ -10,43 +10,43 @@ package com.inbyte.cg.model;
 public class GenerateColumnInfo {
 
     /**
-     * 字段名
+     * 
      */
     private String columnName;
     /**
-     * 小写开头驼峰名
+     * 
      */
     private String columnCamelName;
     /**
-     * 大写开头驼峰名
+     * 
      */
     private String columnUpperCamelName;
     /**
-     * 字段注释
+     * 
      */
     private String columnComment;
     /**
-     * 字段类型
+     * 
      */
     private String columnJdbcType;
     /**
-     * 字段Java类型名称
+     * Java
      */
     private String columnJavaTypeName;
     /**
-     * 允许为空
+     * 
      */
     private String nullable;
     /**
-     * 字符最大长度
+     * 
      */
     private String characterMaximumLength;
     /**
-     * set 方法名称
+     * set 
      */
     private String setterName;
     /**
-     * get 方法名称
+     * get 
      */
     private String getterName;
 

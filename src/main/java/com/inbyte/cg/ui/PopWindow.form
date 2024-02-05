@@ -70,7 +70,7 @@
               <forms/>
             </constraints>
             <properties>
-              <text value="表名："/>
+              <text value=":"/>
             </properties>
           </component>
           <component id="7fe3b" class="javax.swing.JTextField" binding="textFieldTableName">
@@ -97,7 +97,7 @@
               <forms/>
             </constraints>
             <properties>
-              <text value="模板："/>
+              <text value="template:"/>
             </properties>
           </component>
         </children>

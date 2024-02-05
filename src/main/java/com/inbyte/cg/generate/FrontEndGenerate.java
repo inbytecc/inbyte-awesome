@@ -1,15 +1,15 @@
 package com.inbyte.cg.generate;
 
+import com.inbyte.cg.model.BasicConfig;
 import com.inbyte.cg.model.ConfigModel;
 import com.inbyte.cg.model.GenerateInfo;
 import com.inbyte.cg.util.FreeMarkUtil;
-import com.inbyte.cg.model.BasicConfig;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Vue 前端代码生成
+ * Vue 
  *
  * @author : chenjw
  * @date: 2023-1-13

@@ -3,8 +3,8 @@ plugins {
     id("org.jetbrains.intellij") version "1.12.0"
 }
 
-group = "com.inbyte"
-version = "1.3.1"
+group = "com.pyrange"
+version = "1.2"
 
 repositories {
     mavenCentral()
@@ -29,7 +29,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("201")
-        untilBuild.set("232.*")
+        untilBuild.set("240.*")
     }
 
     signPlugin {

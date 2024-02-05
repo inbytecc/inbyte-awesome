@@ -1,16 +1,16 @@
 package com.inbyte.cg.ui;
 
 import com.google.common.base.Throwables;
-import com.inbyte.cg.model.ConfigModel;
-import com.inbyte.cg.util.CommonUtil;
-import com.inbyte.cg.util.MessageUtil;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.inbyte.cg.PyrangeException;
 import com.inbyte.cg.model.BasicConfig;
+import com.inbyte.cg.util.MessageUtil;
 import com.inbyte.cg.generate.CodeGenerate;
+import com.inbyte.cg.model.ConfigModel;
+import com.inbyte.cg.util.CommonUtil;
 
 import javax.swing.*;
 import javax.swing.event.PopupMenuEvent;
@@ -21,7 +21,7 @@ import java.io.File;
 import java.util.List;
 
 /**
- * 工具图形化窗口
+ * 
  *
  * @author chenjw
  * @date 2023-2-3
@@ -78,7 +78,7 @@ public class ToolWindowUI {
         PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
 
         this.baseProjectPath = project.getBasePath();
-        // 初始化checkbox
+        // checkbox
         controllerCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-controllerCheckBox", true));
         serviceCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-serviceCheckBox", true));
         mapperCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-mapperCheckBox", true));
@@ -213,7 +213,7 @@ public class ToolWindowUI {
             }
         });
 
-        // 表名改变监听
+        // 
         Document document = textFieldTableName.getDocument();
 //        document.addDocumentListener(new DocumentListener() {
 //            @Override
@@ -316,7 +316,7 @@ public class ToolWindowUI {
             public void mouseClicked(MouseEvent e) {
                 boolean settingsConfigured = Settings.settingsConfigured();
                 if (!settingsConfigured) {
-                    Messages.showMessageDialog("请先初始化基本配置", "tip", Messages.getInformationIcon());
+                    Messages.showMessageDialog("", "tip", Messages.getInformationIcon());
                     return;
                 }
 
@@ -338,7 +338,7 @@ public class ToolWindowUI {
             public void mouseClicked(MouseEvent e) {
                 boolean settingsConfigured = Settings.settingsConfigured();
                 if (!settingsConfigured) {
-                    Messages.showMessageDialog("请先初始化基本配置", "tip", Messages.getInformationIcon());
+                    Messages.showMessageDialog("", "tip", Messages.getInformationIcon());
                     return;
                 }
 
@@ -361,7 +361,7 @@ public class ToolWindowUI {
             public void mouseClicked(MouseEvent e) {
                 boolean settingsConfigured = Settings.settingsConfigured();
                 if (!settingsConfigured) {
-                    Messages.showMessageDialog("请先初始化基本配置", "tip", Messages.getInformationIcon());
+                    Messages.showMessageDialog("", "tip", Messages.getInformationIcon());
                     return;
                 }
 
@@ -384,7 +384,7 @@ public class ToolWindowUI {
             public void mouseClicked(MouseEvent e) {
                 boolean settingsConfigured = Settings.settingsConfigured();
                 if (!settingsConfigured) {
-                    Messages.showMessageDialog("请先初始化基本配置", "tip", Messages.getInformationIcon());
+                    Messages.showMessageDialog("", "tip", Messages.getInformationIcon());
                     return;
                 }
 
@@ -419,7 +419,7 @@ public class ToolWindowUI {
             public void mouseClicked(MouseEvent e) {
                 boolean settingsConfigured = Settings.settingsConfigured();
                 if (!settingsConfigured) {
-                    Messages.showMessageDialog("请先初始化基本配置", "tip", Messages.getInformationIcon());
+                    Messages.showMessageDialog("", "tip", Messages.getInformationIcon());
                     return;
                 }
 
