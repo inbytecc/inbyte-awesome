@@ -11,15 +11,7 @@
         <el-form ref="searchForm" :inline="true" class="search-box" :model="searchData">
           <el-form-item class="search-item" label="关键字搜索:" prop="keyword">
             <el-input v-model="searchData.keyword" clearable suffix-icon="el-icon-search"
-                      placeholder="请输入关键字搜索" @keyup.enter.native="handleSearch" />
-          </el-form-item>
-          <el-form-item class="search-item" label="状态:" prop="status">
-            <el-select v-model="searchData.status" style="width: 100%" placeholder="请选择" filterable
-                       @change="handleSearch">
-              <el-option label="全部" :value="''"> </el-option>
-              <el-option label="无效" :value="0"> </el-option>
-              <el-option label="有效" :value="1"> </el-option>
-            </el-select>
+                      placeholder="请输入关键字搜索" @keyup.enter.native="handleSearch" @input="handleSearch"/>
           </el-form-item>
           <el-form-item class="search-item" label="日期筛选:" prop="date">
             <el-date-picker v-model="searchData.date" style="width: 100%" type="daterange"
@@ -28,6 +20,15 @@
             </el-date-picker>
           </el-form-item>
           <!-- 默认 需要收起 -->
+          <!--
+          <el-form-item class="search-item" label="状态:" prop="status">
+            <el-select v-model="searchData.status" style="width: 100%" placeholder="请选择" filterable
+                       @change="handleSearch">
+              <el-option label="全部" :value="''"> </el-option>
+              <el-option label="无效" :value="0"> </el-option>
+              <el-option label="有效" :value="1"> </el-option>
+            </el-select>
+          </el-form-item>
           <el-form-item v-show="!isFold" class="search-item" label="启用:" prop="disable">
             <el-switch v-model="searchData.disable" :active-value="1" :inactive-value="0"  @change="handleSearch">
             </el-switch>
@@ -39,6 +40,7 @@
               <el-option label="开启" :value="1"> </el-option>
             </el-select>
           </el-form-item>
+          -->
         </el-form>
       </el-col>
       <DefaultButton :fold.sync="isFold" @reset="resetField" @refresh="handleSearch"/>
@@ -51,11 +53,11 @@
       </div>
     </div>
     <!-- 列表 -->
-    <el-table v-loading="listLoading" :data="listData" element-loading-text="Loading" fit highlight-current-row>
+    <el-table v-loading="listLoading" :data="listData" element-loading-text="Loading" fit highlight-current-row @sort-change="onSortChange">
 <#list generateInfo.columnList as column>
-  <#if generateInfo.primaryKey == column.columnCamelName || "${column.columnCamelName}"?matches("deleted|isDel|isDelete|isDeleted|createUserName|createUserId|updateUserName|updateUserId|updateTime")>
+  <#if generateInfo.primaryKey == column.columnCamelName || "${column.columnCamelName}"?matches("deleted|isDel|isDelete|isDeleted|createUserName|createUserId|updateUserName|updateUserId|updateTime|content|banner")>
   <#else>
-      <el-table-column align="center" prop="${column.columnCamelName}" <#if "${column.columnJavaTypeName}"?matches("LocalDateTime")>width="140" </#if><#if "${column.columnCamelName}"?matches(".*?(Title|Desc|Brief).*")>width="120" show-overflow-tooltip </#if>label="${column.columnComment}">
+      <el-table-column align="center" prop="${column.columnCamelName}" label="${column.columnComment}" <#if "${column.columnJavaTypeName}"?matches("LocalDateTime")>width="140" </#if><#if "${column.columnCamelName}"?matches(".*?(name|Name|title|Title|Desc|brief|Brief).*")>width="120" show-overflow-tooltip </#if><#if "${column.columnCamelName}"?matches(".*?(count|Count|hidden|top|ordinal|createTime|Time|Date).*")>sortable="custom" :sort-orders="['ascending','descending']"</#if> >
     <#if column_index == 1>
         <template slot-scope="{row}">
           <el-link type="primary" @click="handleDetail(row)">{{row.${column.columnCamelName}}}</el-link>
@@ -68,12 +70,31 @@
         <template slot-scope="{row}">
           {{ dict.type.${column.columnCamelName}[row.${column.columnCamelName}] || "-" }}
         </template>
-    <#elseif "${column.columnCamelName}"?matches(".*?(img|Ima|image|Image|photo|Photo).*")>
+    <#elseif "${column.columnCamelName}"?matches("ordinal")>
+        <template slot="header">
+          排序
+          <el-tooltip class="item" effect="dark" content="数值越小越靠前" placement="right">
+            <i class="el-icon-question"></i>
+          </el-tooltip>
+        </template>
+        <template slot-scope="{ row }">
+          <el-input style="width: 50px;" v-model.number="row.ordinal" controls="false" @blur="ordinalChange($event, row.${generateInfo.primaryKeyLowerCamel})" >
+          </el-input>
+        </template>
+    <#elseif "${column.columnCamelName}"?matches("hidden")>
+        <template slot="header">
+          隐藏
+          <el-tooltip class="item" effect="dark" content="小程序列表隐藏，隐藏后只能通过二维码或特定连接访问" placement="right">
+            <i class="el-icon-question"></i>
+          </el-tooltip>
+        </template>
+        <template slot-scope="{ row }">
+          <el-switch v-model="row.hidden" :active-value="1" :inactive-value="0" @change="hiddenChange($event, row.${generateInfo.primaryKeyLowerCamel})">
+          </el-switch>
+        </template>
+    <#elseif "${column.columnCamelName}"?matches(".*?(avatar|img|Ima|image|Image|photo|Photo).*")>
         <template slot-scope="{row}">
-          <el-image
-                  style="width: 80px; height: 80px"
-                  :src="row.${column.columnCamelName}"
-                  fit="contain"></el-image>
+          <el-image :src="row.${column.columnCamelName}" style="width: 25px; height: 25px" fit="contain"></el-image>
         </template>
     </#if>
       </el-table-column>
@@ -122,9 +143,7 @@ export default {
       listLoading: true,
       searchData: {
         keyword: '',
-        status: '',
         date: null,
-        disable: 1
       },
       page: {
         total: 0,
@@ -151,14 +170,13 @@ export default {
         this.page.pageNum = num
       }
       this.listLoading = true
-      const params = {
-        keyword: this.searchData.keyword,
-        status: this.searchData.status,
-        startDate: this.searchData.date ? this.searchData.date[0] : '',
-        endDate: this.searchData.date ? this.searchData.date[1] : '',
-        pageNum: this.page.pageNum,
-        pageSize: this.page.pageSize
-      }
+      const params = Object.assign({}, this.searchData);
+      params.pageNum = this.page.pageNum
+      params.pageSize = this.page.pageSize
+      params.startDate = this.searchData.date ? this.searchData.date[0] : ''
+      params.endDate = this.searchData.date ? this.searchData.date[1] : ''
+      delete params.date
+
       const res = await request({
         url: '${generateInfo.moduleNameWithSlash}',
         method: 'get',
@@ -222,7 +240,36 @@ export default {
           message: '已取消删除'
         })
       })
-    }
+    },
+
+    // 排序变更
+    onSortChange({ prop, order }) {
+      this.searchData.orderColumn = prop
+      this.searchData.ordering = order.replace('ending', '')
+      this.initTable()
+    },
+
+<#list generateInfo.columnList as column>
+<#if "${column.columnCamelName}"?matches("hidden|top|hot|ordinal")>
+    ${column.columnCamelName}Change(eventValue, ${generateInfo.primaryKeyLowerCamel}) {
+      request({
+        url: '${generateInfo.moduleNameWithSlash}',
+        method: "put",
+        data: {
+          ${generateInfo.primaryKeyLowerCamel}: ${generateInfo.primaryKeyLowerCamel},
+          ${column.columnCamelName}: eventValue,
+        },
+      }).then((res) => {
+        this.$message({
+          type: "info",
+          message: "设置成功",
+        });
+        this.initTable();
+      });
+    },
+</#if>
+</#list>
   }
+
 }
 </script>

@@ -36,7 +36,7 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     @Override
     public R insert(${generateInfo.moduleName}Insert insert) {
         ${generateInfo.moduleName}Po ${generateInfo.moduleNameLowercaseCamel}Po = ${generateInfo.moduleName}Po.builder()
-                .mctNo(SessionUtil.getDefaultMctNo())
+                //.mctNo(SessionUtil.getDefaultMctNo())
                 .createTime(LocalDateTime.now())
                 .createUserId(SessionUtil.getUserId())
                 .createUserName(SessionUtil.getUserName())
@@ -49,8 +49,8 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     @Override
     public R delete(Integer ${generateInfo.primaryKeyLowerCamel}) {
         LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper<${generateInfo.moduleName}Po>()
-            .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel})
-            .eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
+            .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel});
+            //.eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
         ${generateInfo.moduleNameLowercaseCamel}Mapper.delete(queryWrapper);
         return R.ok("删除成功");
     }
@@ -63,8 +63,8 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
         BeanUtils.copyProperties(update, ${generateInfo.moduleNameLowercaseCamel}Po);
 
         LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper<${generateInfo.moduleName}Po>()
-                .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, update.get${generateInfo.primaryKeyUpperCamel}())
-                .eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
+                .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, update.get${generateInfo.primaryKeyUpperCamel}());
+                //.eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
         ${generateInfo.moduleNameLowercaseCamel}Mapper.update(${generateInfo.moduleNameLowercaseCamel}Po, queryWrapper);
         return R.ok("修改成功");
     }

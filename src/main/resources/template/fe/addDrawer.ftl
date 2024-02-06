@@ -9,7 +9,7 @@
     <el-form :model="formData" :rules="rules" ref="formData" label-width="100px" style="padding: 20px 40px 20px 20px;">
       <h3>基本信息</h3>
 <#list generateInfo.columnList as column>
-  <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches("deleted|createUserName|createUserId|createTime|updateUserName|updateUserId|updateTime")>
+  <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches(".*?(deleted|createUserName|createUserId|createTime|updateUserName|updateUserId|updateTime|hidden|top|ordinal|Count|content|banner).*")>
   <#elseif "${column.columnCamelName}"?matches("(can|allow).*")>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
         <el-switch v-model="formData.${column.columnCamelName}" :active-value="1" :inactive-value="0"></el-switch>

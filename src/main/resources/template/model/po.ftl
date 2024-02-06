@@ -7,6 +7,7 @@ import lombok.*;
 <#list generateInfo.importList as import>
 import ${import};
 </#list>
+import com.alibaba.fastjson2.JSONArray;
 
 /**
  * ${generateInfo.tableComment}实体

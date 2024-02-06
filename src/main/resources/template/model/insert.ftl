@@ -12,6 +12,7 @@ import jakarta.validation.constraints.NotNull;
 <#else>
 import javax.validation.constraints.NotNull;
 </#if>
+import com.alibaba.fastjson2.JSONArray;
 
 /**
  * ${generateInfo.tableComment}创建

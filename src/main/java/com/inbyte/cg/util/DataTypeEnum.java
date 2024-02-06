@@ -74,7 +74,7 @@ public enum DataTypeEnum {
     public static String getJavaTypeNameByDataType(String dataType) {
         DataTypeEnum dataTypeEnum = getEnumByDataType(dataType);
         if(dataTypeEnum == null){
-            return "Object";
+            return "JSONArray";
         }
         return dataTypeEnum.javaTypeName;
     }
