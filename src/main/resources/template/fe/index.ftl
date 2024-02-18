@@ -92,7 +92,7 @@
           <el-switch v-model="row.hidden" :active-value="1" :inactive-value="0" @change="hiddenChange($event, row.${generateInfo.primaryKeyLowerCamel})">
           </el-switch>
         </template>
-    <#elseif "${column.columnCamelName}"?matches(".*?(avatar|img|Ima|image|Image|photo|Photo).*")>
+    <#elseif "${column.columnCamelName}"?matches(".*?(avatar|Avatar|img|Img|image|Image|photo|Photo).*")>
         <template slot-scope="{row}">
           <el-image :src="row.${column.columnCamelName}" style="width: 25px; height: 25px" fit="contain"></el-image>
         </template>

@@ -51,11 +51,11 @@
       </el-form-item>
   <#elseif "${column.columnJavaTypeName}"?matches("Integer")>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
-        <el-input-number v-model="formData.${column.columnCamelName}" :min="1" :max="1000000" :precision="0" label="${column.columnComment}"></el-input-number>
+        <el-input-number v-model="formData.${column.columnCamelName}" :min="0" :max="1000000" :precision="0" label="${column.columnComment}"></el-input-number>
       </el-form-item>
   <#elseif "${column.columnJavaTypeName}"?matches("BigDecimal")>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
-        <el-input-number v-model="formData.${column.columnCamelName}" :min="1" :max="1000000" label="${column.columnComment}"></el-input-number>
+        <el-input-number v-model="formData.${column.columnCamelName}" :min="0" :max="1000000" label="${column.columnComment}"></el-input-number>
       </el-form-item>
   <#else>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
