@@ -3,8 +3,8 @@ plugins {
     id("org.jetbrains.intellij") version "1.12.0"
 }
 
-group = "com.pyrange"
-version = "1.2"
+group = "com.inbyte"
+version = "1.0.0"
 
 repositories {
     mavenCentral()

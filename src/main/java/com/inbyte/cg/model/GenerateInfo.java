@@ -33,12 +33,12 @@ public class GenerateInfo {
     private String modelPackage;
     /**
      *  controller 
-     * com.pyrange.xx
+     * com.inbyte.xx
      */
     private String controllerPackage;
     /**
      *  controller 
-     * com/pyrange/xx
+     * com/inbyte/xx
      */
     private String controllerPackageWithSlash;
     private String servicePackage;

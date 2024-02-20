@@ -72,7 +72,7 @@
         </template>
     <#elseif "${column.columnCamelName}"?matches("ordinal")>
         <template slot="header">
-          排序
+          ${column.columnComment}
           <el-tooltip class="item" effect="dark" content="数值越小越靠前" placement="right">
             <i class="el-icon-question"></i>
           </el-tooltip>
@@ -90,6 +90,14 @@
         </template>
         <template slot-scope="{ row }">
           <el-switch v-model="row.hidden" :active-value="1" :inactive-value="0" @change="hiddenChange($event, row.${generateInfo.primaryKeyLowerCamel})">
+          </el-switch>
+        </template>
+    <#elseif "${column.columnCamelName}"?matches("top|deal|forbidden")>
+        <template slot="header">
+          ${column.columnComment}
+        </template>
+        <template slot-scope="{ row }">
+          <el-switch v-model="row.${column.columnCamelName}" :active-value="1" :inactive-value="0" @change="${column.columnCamelName}Change($event, row.${generateInfo.primaryKeyLowerCamel})">
           </el-switch>
         </template>
     <#elseif "${column.columnCamelName}"?matches(".*?(avatar|Avatar|img|Img|image|Image|photo|Photo).*")>
@@ -250,7 +258,7 @@ export default {
     },
 
 <#list generateInfo.columnList as column>
-<#if "${column.columnCamelName}"?matches("hidden|top|hot|ordinal")>
+<#if "${column.columnCamelName}"?matches("hidden|top|hot|ordinal|forbidden|deal")>
     ${column.columnCamelName}Change(eventValue, ${generateInfo.primaryKeyLowerCamel}) {
       request({
         url: '${generateInfo.moduleNameWithSlash}',
