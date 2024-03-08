@@ -81,7 +81,7 @@ public class ${generateInfo.moduleName}Controller {
      * @return R${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"}
      **/
     @GetMapping
-    public R${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"} list(@ModelAttribute @Valid ${generateInfo.moduleName}Query query) {
+    public R${"<Page<"}${generateInfo.moduleName}Brief${">>"} list(@ModelAttribute @Valid ${generateInfo.moduleName}Query query) {
         return ${generateInfo.moduleNameLowercaseCamel}Service.list(query);
     }
 }

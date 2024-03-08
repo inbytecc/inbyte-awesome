@@ -75,7 +75,7 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     }
 
     @Override
-    public R${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"} list(${generateInfo.moduleName}Query query) {
+    public R${"<Page<"}${generateInfo.moduleName}Brief${">>"} list(${generateInfo.moduleName}Query query) {
         if (query.getEndDate() != null) {
             query.setEndDate(query.getEndDate().plusDays(1));
         }
