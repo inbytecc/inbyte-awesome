@@ -47,7 +47,7 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     }
 
     @Override
-    public R delete(Integer ${generateInfo.primaryKeyLowerCamel}) {
+    public R delete(${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel}) {
         LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper<${generateInfo.moduleName}Po>()
             .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel});
             //.eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
