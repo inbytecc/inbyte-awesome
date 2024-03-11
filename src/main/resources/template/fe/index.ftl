@@ -125,7 +125,7 @@
     <!-- 编辑弹窗 -->
     <editDialog v-if="editDialogData.visible" :visible.sync="editDialogData.visible" :${generateInfo.primaryKeyLowerCamel}="editDialogData.${generateInfo.primaryKeyLowerCamel}" @success="initTable" />
     <!-- 新增 -->
-    <addDrawer v-if="addDrawerVisible" :drawer.sync="addDrawerVisible" @success="initTable" />
+    <addDrawer v-if="addDialogVisible" :visible.sync="addDialogVisible" @success="initTable" />
   </div>
 </template>
 
@@ -147,7 +147,7 @@ export default {
     return {
       listData: null,
       isFold: true,
-      addDrawerVisible: false,
+      addDialogVisible: false,
       listLoading: true,
       searchData: {
         keyword: '',
@@ -216,7 +216,7 @@ export default {
 
     // 打开添加
     handleAdd() {
-      this.addDrawerVisible = true
+      this.addDialogVisible = true
     },
 
     // 修改
@@ -252,7 +252,7 @@ export default {
 
     // 排序变更
     onSortChange({ prop, order }) {
-      this.searchData.orderColumn = prop
+      this.searchData.orderColumn = prop.replace(/([A-Z])/g, "_$1").toLowerCase()
       this.searchData.ordering = order.replace('ending', '')
       this.initTable()
     },

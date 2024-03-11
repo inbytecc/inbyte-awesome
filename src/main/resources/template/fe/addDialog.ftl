@@ -4,12 +4,12 @@
  * @Date: ${generateInfo.date}
 -->
 <template>
-  <el-drawer title="新建${generateInfo.tableComment}" :visible.sync="drawer" direction="rtl" :size="500" :before-close="handleClose">
+  <el-dialog title="新建${generateInfo.tableComment}" :visible.sync="visible" append-to-body top="50px" width="800px" :before-close="handleClose">
     <el-alert title="新建提示" type="warning" :closable="false" show-icon />
     <el-form :model="formData" :rules="rules" ref="formData" label-width="100px" style="padding: 20px 40px 20px 20px;">
       <h3>基本信息</h3>
 <#list generateInfo.columnList as column>
-  <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches(".*?(deleted|createUserName|createUserId|createTime|updateUserName|updateUserId|updateTime|hidden|top|ordinal|Count|content|banner).*")>
+  <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches(".*?(deleted|creatorId|creator_id|creatorName|creator_name|createUserName|createUserId|createTime|updateUserName|updateUserId|updateTime|hidden|top|ordinal|Count|content|banner).*")>
   <#elseif "${column.columnCamelName}"?matches("(can|allow).*")>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
         <el-switch v-model="formData.${column.columnCamelName}" :active-value="1" :inactive-value="0"></el-switch>
@@ -69,7 +69,7 @@
         <el-button @click="resetForm()">重置</el-button>
       </el-form-item>
     </el-form>
-  </el-drawer>
+  </el-dialog>
 </template>
 
 <script>
@@ -77,7 +77,7 @@ import request from '@/api/axios'
 export default {
   dicts: ['whether', <#list generateInfo.columnList as column><#if "${column.columnCamelName}"?matches(".*?(status|Status|type|Type|strategy|Strategy|pattern|Pattern).*")>'${column.columnCamelName}', </#if></#list>],
   props: {
-    drawer: {
+    visible: {
       type: Boolean,
       default: false
     }

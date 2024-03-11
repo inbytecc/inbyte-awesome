@@ -13,10 +13,10 @@
           FROM ${generateInfo.tableName}
          WHERE deleted = 0
         <if test="startDate != null">
-           AND createTime &gt; <#noparse>#{startDate, jdbcType=TIMESTAMP}</#noparse>
+           AND create_time &gt; <#noparse>#{startDate, jdbcType=TIMESTAMP}</#noparse>
         </if>
         <if test="endDate != null">
-           AND createTime &lt; <#noparse>#{endDate, jdbcType=TIMESTAMP}</#noparse>
+           AND create_time &lt; <#noparse>#{endDate, jdbcType=TIMESTAMP}</#noparse>
         </if>
         <if test="keyword != null and keyword != ''">
             -- TODO ${generateInfo.author} don't forget to modify the column name

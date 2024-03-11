@@ -390,7 +390,7 @@ public class ToolWindowUI {
 
                 try {
                     String indexStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "fe/index.ftl");
-                    String addStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "fe/addDrawer.ftl");
+                    String addStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "fe/addDialog.ftl");
                     String detailStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "fe/detailDialog.ftl");
                     String editStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "fe/editDialog.ftl");
                     String detailPlusStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "fe/detailPlus.ftl");

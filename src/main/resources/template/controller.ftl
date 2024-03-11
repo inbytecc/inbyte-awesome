@@ -78,7 +78,7 @@ public class ${generateInfo.moduleName}Controller {
      * 列表
      *
      * @param query
-     * @return R${"<Page<List<"}${generateInfo.moduleName}Brief${">>>"}
+     * @return R${"<Page<"}${generateInfo.moduleName}Brief${">>"}
      **/
     @GetMapping
     public R${"<Page<"}${generateInfo.moduleName}Brief${">>"} list(@ModelAttribute @Valid ${generateInfo.moduleName}Query query) {

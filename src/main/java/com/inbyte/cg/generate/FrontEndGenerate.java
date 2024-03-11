@@ -25,7 +25,7 @@ public class FrontEndGenerate {
         FreeMarkUtil.generateFileByTemplateContent(root, "fe/index.ftl",
                 configModel.getFePath() + "/" + generateInfo.getModuleNameWithHyphen(), "index.vue");
 
-        FreeMarkUtil.generateFileByTemplateContent(root, "fe/addDrawer.ftl",
+        FreeMarkUtil.generateFileByTemplateContent(root, "fe/addDialog.ftl",
                 configModel.getFePath() + "/" + generateInfo.getModuleNameWithHyphen() + "/component/", "addDrawer.vue");
 
         FreeMarkUtil.generateFileByTemplateContent(root, "fe/detailDialog.ftl",
