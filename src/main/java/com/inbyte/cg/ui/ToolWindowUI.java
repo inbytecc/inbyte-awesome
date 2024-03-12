@@ -83,8 +83,8 @@ public class ToolWindowUI {
         serviceCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-serviceCheckBox", true));
         mapperCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-mapperCheckBox", true));
         modelCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-modelCheckBox", true));
-        testCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-testCheckBox", true));
-        frontEndCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-frontEndCheckBox", true));
+        testCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-testCheckBox", false));
+        frontEndCheckBox.setSelected(propertiesComponent.getBoolean("Pyrange-Windows-frontEndCheckBox", false));
 
         textFieldTableName.setText(propertiesComponent.getValue("Pyrange-Windows-tableName"));
         textFieldProjectPath.setText(propertiesComponent.getValue("Pyrange-Windows-projectPath"));
