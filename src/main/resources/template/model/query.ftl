@@ -35,7 +35,7 @@ public class ${generateInfo.moduleName}Query extends BasePage {
     /**
      * 排序字段
      **/
-    @Pattern(regexp = "createTime|viewCount|top|hidden", message = "排序字段不合法")
+    @Pattern(regexp = "create_time|update_time|view_count|top|hidden", message = "排序字段不合法")
     private String orderColumn;
 
     /**

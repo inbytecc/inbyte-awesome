@@ -29,7 +29,7 @@ public class ${generateInfo.moduleName}Po {
       * ${column.columnComment}
       */
 <#if generateInfo.primaryKey == column.columnName>
-    @TableId(value = "${column.columnCamelName}", type = IdType.AUTO)
+    @TableId(value = "${column.columnName}", type = IdType.AUTO)
 </#if>
     private ${column.columnJavaTypeName} ${column.columnCamelName};
 

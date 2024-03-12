@@ -9,7 +9,7 @@
     </select>
 
     <select id="list" resultType="${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Brief">
-        SELECT <#list generateInfo.columnList as column><#if column_has_next><#if !"${column.columnCamelName}"?matches("deleted|isDel|isDelete|isDeleted|createUserName|createUserId|updateUserName|updateUserId|updateTime")>${column.columnName},${"\n               "}</#if><#else>${column.columnName}</#if></#list>
+        SELECT <#list generateInfo.columnList as column><#if column_has_next><#if !"${column.columnCamelName}"?matches("${generateInfo.ignoredColumns}")>${column.columnName},${"\n               "}</#if><#else>${column.columnName}</#if></#list>
           FROM ${generateInfo.tableName}
          WHERE deleted = 0
         <if test="startDate != null">

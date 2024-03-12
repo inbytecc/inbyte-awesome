@@ -58,6 +58,8 @@ public class GenerateInfo {
     private String primaryKeyLowerCamel;
     private String primaryKeyUpperCamel;
 
+    private String ignoredColumns;
+
     public String getTableComment() {
         return tableComment;
     }
@@ -281,4 +283,13 @@ public class GenerateInfo {
     public void setModuleNameLowercaseCamel(String moduleNameLowercaseCamel) {
         this.moduleNameLowercaseCamel = moduleNameLowercaseCamel;
     }
+
+    public String getIgnoredColumns() {
+        return ignoredColumns;
+    }
+
+    public void setIgnoredColumns(String ignoredColumns) {
+        this.ignoredColumns = ignoredColumns;
+    }
+
 }
