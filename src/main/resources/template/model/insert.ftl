@@ -25,7 +25,7 @@ import com.alibaba.fastjson2.JSONArray;
 public class ${generateInfo.moduleName}Insert {
 
 <#list generateInfo.columnList as column>
-    <#if generateInfo.primaryKey == column.columnCamelName || "${column.columnCamelName}"?matches("${generateInfo.ignoredColumns}")>
+    <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches("${generateInfo.ignoredColumns}")>
     <#else>
     /** ${column.columnComment} */
         <#if column.nullable == 'NO'>
