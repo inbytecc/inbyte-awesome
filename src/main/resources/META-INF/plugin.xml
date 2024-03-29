@@ -43,7 +43,7 @@
         <plugin id="com.intellij.modules.java"></plugin>
     </dependencies>
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Awesome-Pyrange" secondary="true" anchor="right" canCloseContents="false"
+        <toolWindow id="Inbyte-CG" secondary="true" anchor="right" canCloseContents="false"
                     icon="/images/logo13x13.png" factoryClass="com.inbyte.cg.config.ToolWindowConfig"/>
     </extensions>
 

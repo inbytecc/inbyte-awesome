@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# InbyteCG, Awesome Code
+# InbyteCG
 InbyteCG is a code generator for Java & Web developer. It can help you generate code that includes controller, service, mapper, model, even test case and Vue code.
 It will introspect a database table (or many tables) and will generate artifacts that can be used to access the table(s).
 This lessens the initial nuisance of setting up objects and configuration files to interact with database tables.
