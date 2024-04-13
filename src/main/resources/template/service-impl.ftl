@@ -37,8 +37,7 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
         ${generateInfo.moduleName}Po ${generateInfo.moduleNameLowercaseCamel}Po = ${generateInfo.moduleName}Po.builder()
                 //.mctNo(SessionUtil.getDefaultMctNo())
                 .createTime(LocalDateTime.now())
-                .creatorId(SessionUtil.getUserId())
-                .creatorName(SessionUtil.getUserName())
+                .creator(SessionUtil.getUserBrief())
                 .build();
         BeanUtils.copyProperties(insert, ${generateInfo.moduleNameLowercaseCamel}Po);
         ${generateInfo.moduleNameLowercaseCamel}Mapper.insert(${generateInfo.moduleNameLowercaseCamel}Po);
@@ -58,8 +57,7 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     public R update(${generateInfo.moduleName}Update update) {
         ${generateInfo.moduleName}Po ${generateInfo.moduleNameLowercaseCamel}Po = ${generateInfo.moduleName}Po.builder()
                 .updateTime(LocalDateTime.now())
-                .modifierId(SessionUtil.getUserId())
-                .modifierName(SessionUtil.getUserName())
+                .modifier(SessionUtil.getUserBrief())
                 .build();
         BeanUtils.copyProperties(update, ${generateInfo.moduleNameLowercaseCamel}Po);
 

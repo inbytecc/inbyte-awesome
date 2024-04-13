@@ -574,7 +574,11 @@ public class ToolWindowUI {
             });
             comboBox.setSelectedItem(directoryByProjectPath.get(0).getAbsolutePath());
         } else {
-            MessageUtil.showErrorMsg("Didn't found " + key + " path");
+//            MessageUtil.showErrorMsg("Didn't found " + key + " path");
+            directoryByProjectPath.forEach(file -> {
+                comboBox.addItem(projectPath + "/" + key);
+            });
+            comboBox.setSelectedItem(projectPath + "/" + key);
         }
     }
 
