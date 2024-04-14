@@ -14,7 +14,7 @@
       <el-descriptions-item label="${column.columnComment}">{{ dict.type.whether[detailData.${column.columnCamelName}] || "-" }}</el-descriptions-item>
   <#elseif "${column.columnCamelName}"?matches(".*?(status|Status|type|Type|strategy|Strategy|pattern|Pattern).*")>
       <el-descriptions-item label="${column.columnComment}">{{ dict.type.${column.columnCamelName}[detailData.${column.columnCamelName}] || "-" }}</el-descriptions-item>
-  <#elseif "${column.columnCamelName}"?matches(".*?(img|Ima|image|Image|photo|Photo).*")>
+  <#elseif "${column.columnCamelName}"?matches(".*?(img|Img|image|Image|photo|Photo).*")>
       <el-descriptions-item label="${column.columnComment}">
         <el-image
                 style="width: 100px; height: 100px"
