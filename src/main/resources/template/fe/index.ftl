@@ -125,7 +125,7 @@
     <!-- 编辑弹窗 -->
     <editDialog v-if="editDialogData.visible" :visible.sync="editDialogData.visible" :${generateInfo.primaryKeyLowerCamel}="editDialogData.${generateInfo.primaryKeyLowerCamel}" @success="initTable" />
     <!-- 新增 -->
-    <addDrawer v-if="addDialogVisible" :visible.sync="addDialogVisible" @success="initTable" />
+    <addDialog v-if="addDialogVisible" :visible.sync="addDialogVisible" @success="initTable" />
   </div>
 </template>
 
@@ -134,13 +134,13 @@ import paging from '@/mixins/paging'
 import request from '@/api/axios'
 import detailDialog from './component/detailDialog.vue'
 import editDialog from './component/editDialog.vue'
-import addDrawer from './component/addDrawer.vue'
+import addDialog from './component/addDialog.vue'
 export default {
   dicts: ['whether', <#list generateInfo.columnList as column><#if "${column.columnCamelName}"?matches(".*?(status|Status|type|Type|strategy|Strategy|pattern|Pattern).*")>'${column.columnCamelName}', </#if></#list>],
   components: {
     detailDialog,
     editDialog,
-    addDrawer
+    addDialog
   },
   mixins: [paging],
   data() {
