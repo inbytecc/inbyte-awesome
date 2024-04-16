@@ -97,7 +97,7 @@ public class CodeGenerate {
         generateInfo.setModelPackage(CommonUtil.getPackageNameByPath(configModel.getModelPath()));
         generateInfo.setMapperPackage(CommonUtil.getPackageNameByPath(configModel.getMapperJavaPath()));
 
-        generateInfo.setIgnoredColumns("deleted|creatorId|creatorName|createUserName|createUserId|createTime|modifierId|modifierName|updateUserName|updateUserId|updateTime|hidden|top|ordinal|Count");
+        generateInfo.setIgnoredColumns("deleted|creatorId|creatorName|creator|createUserName|createUserId|createTime|modifierId|modifierName|modifier|updateUserName|updateUserId|updateTime|hidden|top|ordinal|Count");
         generateInfo.setDate(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now()));
         generateInfo.setTableComment(tableInfo.getTableComment());
         generateInfo.setTableName(tableInfo.getTableName());
