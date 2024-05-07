@@ -7,7 +7,7 @@
   <el-dialog title="编辑" :visible.sync="visible" append-to-body top="50px" width="800px" :before-close="handleClose">
     <el-form ref="formData" :model="formData" :rules="rules" label-width="120px">
 <#list generateInfo.columnList as column>
-  <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches("${generateInfo.ignoredColumns}")>
+  <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches("deleted|mctNo|creator|modifier|createTime|updateTime")>
   <#elseif "${column.columnCamelName}"?ends_with("ed")>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
         <el-radio-group v-model="formData.${column.columnCamelName}">

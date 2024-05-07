@@ -20,7 +20,7 @@ import org.hibernate.validator.constraints.Length;
 public class ${generateInfo.moduleName}Update {
 
 <#list generateInfo.columnList as column>
-    <#if "${column.columnCamelName}"?matches("${generateInfo.ignoredColumns}")>
+    <#if "${column.columnCamelName}"?matches("deleted|mctNo|creator|modifier|createTime|updateTime")>
     <#else>
     /** ${column.columnComment} */
         <#if column.columnJavaTypeName == 'String'>

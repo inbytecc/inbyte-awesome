@@ -9,7 +9,7 @@
     <el-form :model="formData" :rules="rules" ref="formData" label-width="100px" style="padding: 20px 40px 20px 20px;">
       <h3>基本信息</h3>
 <#list generateInfo.columnList as column>
-  <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches("${generateInfo.ignoredColumns}")>
+  <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches("deleted|mctNo|creator|modifier|createTime|updateTime")>
   <#elseif "${column.columnCamelName}"?matches("(can|allow).*")>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
         <el-switch v-model="formData.${column.columnCamelName}" :active-value="1" :inactive-value="0"></el-switch>
@@ -47,7 +47,7 @@
 </#list>
 
       <el-form-item>
-        <el-button type="primary" :loading="btnLoading" @click="submitForm()">立即创建</el-button>
+        <el-button type="primary" :loading="btnLoading" @click="handleSubmit()">立即创建</el-button>
         <el-button @click="resetForm()">重置</el-button>
       </el-form-item>
     </el-form>
@@ -87,7 +87,7 @@ export default {
     handleClose() {
       this.$emit('update:visible', false)
     },
-    submitForm() {
+    handleSubmit() {
       this.btnLoading = true
       this.$refs['formData'].validate(async (valid) => {
         if (valid) {
