@@ -33,7 +33,7 @@
     <!-- 列表 -->
     <el-table v-loading="listLoading" :data="listData" element-loading-text="Loading" fit highlight-current-row @sort-change="onSortChange">
 <#list generateInfo.columnList as column>
-  <#if generateInfo.primaryKey == column.columnCamelName || "${column.columnCamelName}"?matches("deleted|isDel|isDelete|isDeleted|createUserName|createUserId|updateUserName|updateUserId|updateTime|content|banner")>
+  <#if generateInfo.primaryKey == column.columnCamelName || "${column.columnCamelName}"?matches("deleted|content|banner")>
   <#else>
       <el-table-column align="center" prop="${column.columnCamelName}" label="${column.columnComment}" <#if "${column.columnJavaTypeName}"?matches("LocalDateTime")>width="140" </#if><#if "${column.columnCamelName}"?matches(".*?(name|Name|title|Title|Desc|brief|Brief).*")>width="120" show-overflow-tooltip </#if><#if "${column.columnCamelName}"?matches(".*?(count|Count|hidden|top|ordinal|createTime|Time|Date).*")>sortable="custom" :sort-orders="['ascending','descending']"</#if> >
     <#if column_index == 1>

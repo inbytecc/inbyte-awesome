@@ -10,14 +10,12 @@
       <h3>基本信息</h3>
 <#list generateInfo.columnList as column>
   <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches("deleted|mctNo|creator|modifier|createTime|updateTime")>
-  <#elseif "${column.columnCamelName}"?matches("(can|allow).*")>
+  <#elseif "${column.columnCamelName}"?matches("(can|allow|ed|able).*")>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
         <el-switch v-model="formData.${column.columnCamelName}" :active-value="1" :inactive-value="0"></el-switch>
       </el-form-item>
-  <#elseif "${column.columnCamelName}"?matches(".*?(ed|able)")>
-      <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
-        <el-switch v-model="formData.${column.columnCamelName}" :active-value="1" :inactive-value="0"></el-switch>
-      </el-form-item>
+  <#elseif "${column.columnCamelName}"?matches(".*?(avatar|Avatar|img|Img|image|Image|photo|Photo)")>
+      //TODO
   <#elseif "${column.columnCamelName}"?matches(".*?(Id)")>
       <el-form-item label="${column.columnComment}" prop="${column.columnCamelName}">
         <el-input v-model="formData.${column.columnCamelName}" />
