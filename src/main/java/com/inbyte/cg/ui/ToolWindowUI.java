@@ -343,7 +343,7 @@ public class ToolWindowUI {
                 }
 
                 try {
-                    String insertStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "model/insert.ftl");
+                    String insertStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "model/create.ftl");
                     String poStr = CodeGenerate.getGeneratedModelStr(BasicConfig.getBasicConfig(), getConfigModel(), "model/po.ftl");
 
                     CodingDialog codingDialog = new CodingDialog(poStr + SEPARATOR_LINE + insertStr);

@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import ${basicConfig.groupId}.test.TestConstant;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Query;
-import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Insert;
+import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Create;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Update;
 
 /**
@@ -36,25 +36,25 @@ public class ${generateInfo.moduleName}Test {
      * 新增测试
      **/
     @Test
-    public void insertTest() throws Exception {
-        ${generateInfo.moduleName}Insert insert = new ${generateInfo.moduleName}Insert();
+    public void createTest() throws Exception {
+        ${generateInfo.moduleName}Create create = new ${generateInfo.moduleName}Create();
         <#list generateInfo.columnList as column>
             <#if generateInfo.primaryKey == column.columnCamelName || "${column.columnCamelName}"?matches("deleted|isDel|isDelete|isDeleted|createUserName|createUserId|createTime|updateUserName|updateUserId|updateTime")>
             <#else>
             <#if column.columnJavaTypeName == 'String'>
-                insert.${column.setterName}("1");
+                create.${column.setterName}("1");
             <#elseIf column.columnJavaTypeName == 'Integer'>
-                insert.${column.setterName}(1);
+                create.${column.setterName}(1);
             <#elseIf column.columnJavaTypeName == 'BigDecimal'>
-                insert.${column.setterName}(BigDecimal.valueOf(0.01));
+                create.${column.setterName}(BigDecimal.valueOf(0.01));
             <#elseIf column.columnJavaTypeName == 'LocalDateTime'>
-                insert.${column.setterName}(LocalDateTime.now());
+                create.${column.setterName}(LocalDateTime.now());
             <#else>
-                insert.${column.setterName}("1");
+                create.${column.setterName}("1");
             </#if>
             </#if>
         </#list>
-        String jsonRequest = JSON.toJSONString(insert);
+        String jsonRequest = JSON.toJSONString(create);
 
         ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.post("/weixin/official/account/config")
                 .contentType(MediaType.APPLICATION_JSON)

@@ -9,7 +9,7 @@ import ${generateInfo.servicePackage}.${generateInfo.moduleName}Service;
 import ${generateInfo.mapperPackage}.${generateInfo.moduleName}Mapper;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Po;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Query;
-import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Insert;
+import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Create;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Update;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Brief;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Detail;
@@ -33,13 +33,13 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     private ${generateInfo.moduleName}Mapper ${generateInfo.moduleNameLowercaseCamel}Mapper;
 
     @Override
-    public R insert(${generateInfo.moduleName}Insert insert) {
+    public R create(${generateInfo.moduleName}Create create) {
         ${generateInfo.moduleName}Po ${generateInfo.moduleNameLowercaseCamel}Po = ${generateInfo.moduleName}Po.builder()
-                //.mctNo(SessionUtil.getDefaultMctNo())
+                .mctNo(SessionUtil.getMctNo())
                 .createTime(LocalDateTime.now())
-                .creator(SessionUtil.getUserBrief())
+                .creator(SessionUtil.getUserName())
                 .build();
-        BeanUtils.copyProperties(insert, ${generateInfo.moduleNameLowercaseCamel}Po);
+        BeanUtils.copyProperties(create, ${generateInfo.moduleNameLowercaseCamel}Po);
         ${generateInfo.moduleNameLowercaseCamel}Mapper.insert(${generateInfo.moduleNameLowercaseCamel}Po);
         return R.ok("新增成功");
     }
@@ -47,8 +47,8 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     @Override
     public R delete(${generateInfo.primaryKeyJavaTypeName} ${generateInfo.primaryKeyLowerCamel}) {
         LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper<${generateInfo.moduleName}Po>()
-            .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel});
-            //.eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
+            .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, ${generateInfo.primaryKeyLowerCamel})
+            .eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getMctNo());
         ${generateInfo.moduleNameLowercaseCamel}Mapper.delete(queryWrapper);
         return R.ok("删除成功");
     }
@@ -57,13 +57,13 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
     public R update(${generateInfo.moduleName}Update update) {
         ${generateInfo.moduleName}Po ${generateInfo.moduleNameLowercaseCamel}Po = ${generateInfo.moduleName}Po.builder()
                 .updateTime(LocalDateTime.now())
-                .modifier(SessionUtil.getUserBrief())
+                .modifier(SessionUtil.getUserName())
                 .build();
         BeanUtils.copyProperties(update, ${generateInfo.moduleNameLowercaseCamel}Po);
 
         LambdaQueryWrapper<${generateInfo.moduleName}Po> queryWrapper = new LambdaQueryWrapper<${generateInfo.moduleName}Po>()
-                .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, update.get${generateInfo.primaryKeyUpperCamel}());
-                //.eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getDefaultMctNo());
+                .eq(${generateInfo.moduleName}Po::get${generateInfo.primaryKeyUpperCamel}, update.get${generateInfo.primaryKeyUpperCamel}())
+                .eq(${generateInfo.moduleName}Po::getMctNo, SessionUtil.getMctNo());
         ${generateInfo.moduleNameLowercaseCamel}Mapper.update(${generateInfo.moduleNameLowercaseCamel}Po, queryWrapper);
         return R.ok("修改成功");
     }

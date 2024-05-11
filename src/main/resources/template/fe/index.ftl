@@ -19,28 +19,6 @@
                             @change="handleSearch">
             </el-date-picker>
           </el-form-item>
-          <!-- 默认 需要收起 -->
-          <!--
-          <el-form-item class="search-item" label="状态:" prop="status">
-            <el-select v-model="searchData.status" style="width: 100%" placeholder="请选择" filterable
-                       @change="handleSearch">
-              <el-option label="全部" :value="''"> </el-option>
-              <el-option label="无效" :value="0"> </el-option>
-              <el-option label="有效" :value="1"> </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item v-show="!isFold" class="search-item" label="启用:" prop="disable">
-            <el-switch v-model="searchData.disable" :active-value="1" :inactive-value="0"  @change="handleSearch">
-            </el-switch>
-          </el-form-item>
-          <el-form-item v-show="!isFold" class="search-item" label="是否启用:" prop="disable">
-            <el-select v-model="searchData.disable" style="width: 100%" placeholder="请选择" filterable
-                       @change="handleSearch">
-              <el-option label="关闭" :value="0"> </el-option>
-              <el-option label="开启" :value="1"> </el-option>
-            </el-select>
-          </el-form-item>
-          -->
         </el-form>
       </el-col>
       <DefaultButton :fold.sync="isFold" @reset="resetField" @refresh="handleSearch"/>

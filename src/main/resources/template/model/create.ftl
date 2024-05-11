@@ -22,7 +22,7 @@ import com.alibaba.fastjson2.JSONArray;
  **/
 @Getter
 @Setter
-public class ${generateInfo.moduleName}Insert {
+public class ${generateInfo.moduleName}Create {
 
 <#list generateInfo.columnList as column>
     <#if generateInfo.primaryKey == column.columnName || "${column.columnCamelName}"?matches("creator|modifier|createTime|updateTime|hidden|top|published|viewCount|saleCount")>

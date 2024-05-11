@@ -122,7 +122,7 @@ public class TemplateSettings extends JDialog {
         insertButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                openEditTemplateDialog(codeTemplatesBox.getSelectedItem().toString(), "model/insert.ftl");
+                openEditTemplateDialog(codeTemplatesBox.getSelectedItem().toString(), "model/create.ftl");
             }
         });
 

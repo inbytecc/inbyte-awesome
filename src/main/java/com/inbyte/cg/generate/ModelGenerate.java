@@ -35,7 +35,7 @@ public class ModelGenerate {
                 configModel.getModelPath() + "/" + generateInfo.getModuleNameWithSlash(),
                 generateInfo.getModuleName() + "Update.java");
 
-        FreeMarkUtil.generateFileByTemplateContent(root, "model/insert.ftl",
+        FreeMarkUtil.generateFileByTemplateContent(root, "model/create.ftl",
                 configModel.getModelPath() + "/" + generateInfo.getModuleNameWithSlash(),
                 generateInfo.getModuleName() + "Insert.java");
 

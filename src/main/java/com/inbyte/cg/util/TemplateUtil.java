@@ -41,7 +41,7 @@ public class TemplateUtil {
         PYRANGE_TEMPLATE_LIST.add("service-impl.ftl");
         PYRANGE_TEMPLATE_LIST.add("mapper.ftl");
         PYRANGE_TEMPLATE_LIST.add("mapperxml.ftl");
-        PYRANGE_TEMPLATE_LIST.add("model/insert.ftl");
+        PYRANGE_TEMPLATE_LIST.add("model/create.ftl");
         PYRANGE_TEMPLATE_LIST.add("model/update.ftl");
         PYRANGE_TEMPLATE_LIST.add("model/po.ftl");
         PYRANGE_TEMPLATE_LIST.add("model/query.ftl");
@@ -84,7 +84,7 @@ public class TemplateUtil {
 //        propertiesComponent.unsetValue(PYRANGE_TEMPLATE_PREFIX + templateCollectionName + "-service-impl.ftl");
 //        propertiesComponent.unsetValue(PYRANGE_TEMPLATE_PREFIX + templateCollectionName + "-mapper.ftl");
 //        propertiesComponent.unsetValue(PYRANGE_TEMPLATE_PREFIX + templateCollectionName + "-mapperxml.ftl");
-//        propertiesComponent.unsetValue(PYRANGE_TEMPLATE_PREFIX + templateCollectionName + "-model/insert.ftl");
+//        propertiesComponent.unsetValue(PYRANGE_TEMPLATE_PREFIX + templateCollectionName + "-model/create.ftl");
 //        propertiesComponent.unsetValue(PYRANGE_TEMPLATE_PREFIX + templateCollectionName + "-model/update.ftl");
 //        propertiesComponent.unsetValue(PYRANGE_TEMPLATE_PREFIX + templateCollectionName + "-model/po.ftl");
 //        propertiesComponent.unsetValue(PYRANGE_TEMPLATE_PREFIX + templateCollectionName + "-model/query.ftl");

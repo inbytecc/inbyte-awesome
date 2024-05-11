@@ -2,7 +2,7 @@ package ${generateInfo.servicePackage};
 import com.inbyte.commons.model.dto.Page;
 import com.inbyte.commons.model.dto.R;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Query;
-import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Insert;
+import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Create;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Update;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Brief;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Detail;
@@ -18,10 +18,10 @@ public interface ${generateInfo.moduleName}Service {
     /**
      * 新增
      *
-     * @param insert
+     * @param create
      * @return R
      **/
-    R insert(${generateInfo.moduleName}Insert insert);
+    R create(${generateInfo.moduleName}Create create);
 
     /**
      * 删除

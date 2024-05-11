@@ -2,7 +2,7 @@ package ${generateInfo.controllerPackage};
 import com.inbyte.commons.model.dto.Page;
 import com.inbyte.commons.model.dto.R;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Query;
-import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Insert;
+import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Create;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Update;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Brief;
 import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generateInfo.moduleName}Detail;
@@ -33,12 +33,12 @@ public class ${generateInfo.moduleName}Controller {
     /**
      * 新增
      *
-     * @param insert
+     * @param create
      * @return R
      **/
     @PostMapping
-    public R insert(@RequestBody @Valid ${generateInfo.moduleName}Insert insert) {
-        return ${generateInfo.moduleNameLowercaseCamel}Service.insert(insert);
+    public R create(@RequestBody @Valid ${generateInfo.moduleName}Create create) {
+        return ${generateInfo.moduleNameLowercaseCamel}Service.create(create);
     }
 
     /**
