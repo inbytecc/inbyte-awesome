@@ -18,7 +18,7 @@ import com.alibaba.fastjson2.JSONArray;
 public class ${generateInfo.moduleName}Detail {
 
 <#list generateInfo.columnList as column>
-    <#if "${column.columnCamelName}"?matches("deleted|isDel|isDelete|isDeleted")>
+    <#if "${column.columnCamelName}"?matches("deleted|mctNo")>
     <#else>
     /** ${column.columnComment} */
     private ${column.columnJavaTypeName} ${column.columnCamelName};
