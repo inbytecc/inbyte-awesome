@@ -31,7 +31,7 @@ public class ${generateInfo.moduleName}Controller {
     private ${generateInfo.moduleName}Service ${generateInfo.moduleNameLowercaseCamel}Service;
 
     /**
-     * 新增
+     * 创建
      *
      * @param create
      * @return R

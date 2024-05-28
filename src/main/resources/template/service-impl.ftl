@@ -41,7 +41,7 @@ public class ${generateInfo.moduleName}ServiceImpl implements ${generateInfo.mod
                 .build();
         BeanUtils.copyProperties(create, ${generateInfo.moduleNameLowercaseCamel}Po);
         ${generateInfo.moduleNameLowercaseCamel}Mapper.insert(${generateInfo.moduleNameLowercaseCamel}Po);
-        return R.ok("新增成功");
+        return R.ok("创建成功");
     }
 
     @Override

@@ -33,7 +33,7 @@ public class ${generateInfo.moduleName}Test {
     private MockMvc mockMvc;
 
     /**
-     * 新增测试
+     * 创建测试
      **/
     @Test
     public void createTest() throws Exception {

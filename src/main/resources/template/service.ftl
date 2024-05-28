@@ -16,7 +16,7 @@ import ${generateInfo.modelPackage}.${generateInfo.moduleNameWithDot}.${generate
 public interface ${generateInfo.moduleName}Service {
 
     /**
-     * 新增
+     * 创建
      *
      * @param create
      * @return R

@@ -102,7 +102,7 @@
     <detailDialog v-if="detailDialogData.visible" :visible.sync="detailDialogData.visible" :${generateInfo.primaryKeyLowerCamel}="detailDialogData.${generateInfo.primaryKeyLowerCamel}" />
     <!-- 编辑弹窗 -->
     <editDialog v-if="editDialogData.visible" :visible.sync="editDialogData.visible" :${generateInfo.primaryKeyLowerCamel}="editDialogData.${generateInfo.primaryKeyLowerCamel}" @success="initTable" />
-    <!-- 新增 -->
+    <!-- 创建 -->
     <addDialog v-if="addDialogVisible" :visible.sync="addDialogVisible" @success="initTable" />
   </div>
 </template>
